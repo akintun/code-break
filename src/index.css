@@ -1,0 +1,161 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import mobile-specific styles */
+@import './styles/mobile.css';
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Gaming Dark Theme - ChainBreaker */
+    --background: 225 25% 8%;
+    --foreground: 210 40% 98%;
+
+    --card: 225 20% 12%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 225 20% 12%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Electric Purple-Cyan Gradient Primary */
+    --primary: 270 80% 60%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 270 80% 70%;
+
+    /* Cyan Accent */
+    --secondary: 180 80% 55%;
+    --secondary-foreground: 225 25% 8%;
+
+    --muted: 225 15% 18%;
+    --muted-foreground: 217 10% 65%;
+
+    /* Neon Pink Accent */
+    --accent: 320 85% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Success Green */
+    --success: 142 76% 45%;
+    --success-foreground: 0 0% 100%;
+
+    /* Warning Yellow */
+    --warning: 45 93% 58%;
+    --warning-foreground: 225 25% 8%;
+
+    --border: 225 20% 20%;
+    --input: 225 20% 18%;
+    --ring: 270 80% 60%;
+
+    --radius: 0.75rem;
+
+    /* Custom Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(270 80% 60%), hsl(180 80% 55%));
+    --gradient-accent: linear-gradient(135deg, hsl(320 85% 60%), hsl(270 80% 60%));
+    --gradient-subtle: linear-gradient(180deg, hsl(225 25% 8%), hsl(225 25% 6%));
+    
+    /* Glow Effects */
+    --glow-primary: 0 0 20px hsl(270 80% 60% / 0.5);
+    --glow-success: 0 0 20px hsl(142 76% 45% / 0.5);
+    --glow-accent: 0 0 20px hsl(320 85% 60% / 0.5);
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .light {
+    /* Light Theme */
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    /* Electric Purple-Cyan Gradient Primary */
+    --primary: 270 80% 60%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 270 80% 70%;
+
+    /* Cyan Accent */
+    --secondary: 180 80% 55%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    /* Neon Pink Accent */
+    --accent: 320 85% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Success Green */
+    --success: 142 76% 45%;
+    --success-foreground: 0 0% 100%;
+
+    /* Warning Yellow */
+    --warning: 45 93% 58%;
+    --warning-foreground: 222 47% 11%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 270 80% 60%;
+
+    /* Custom Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(270 80% 60%), hsl(180 80% 55%));
+    --gradient-accent: linear-gradient(135deg, hsl(320 85% 60%), hsl(270 80% 60%));
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%), hsl(210 40% 98%));
+    
+    /* Glow Effects */
+    --glow-primary: 0 0 20px hsl(270 80% 60% / 0.3);
+    --glow-success: 0 0 20px hsl(142 76% 45% / 0.3);
+    --glow-accent: 0 0 20px hsl(320 85% 60% / 0.3);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background: linear-gradient(180deg, hsl(225 25% 8%), hsl(225 25% 6%));
+    min-height: 100vh;
+  }
+}
+
+@layer utilities {
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+  
+  .glow-primary {
+    box-shadow: var(--glow-primary);
+  }
+  
+  .glow-success {
+    box-shadow: var(--glow-success);
+  }
+  
+  .glow-accent {
+    box-shadow: var(--glow-accent);
+  }
+  
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+}
