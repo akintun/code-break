@@ -279,5 +279,6 @@ The application uses a custom hooks architecture that separates concerns effecti
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-#   c o d e - b r e a k  
+#   c o d e - b r e a k 
+ 
  
