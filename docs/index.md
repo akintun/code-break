@@ -4,7 +4,13 @@ This folder contains all improved markdown documentation files for the ChainBrea
 
 ## Available Docs
 
-- `README.md`: Main project overview, features, setup, architecture, and guidelines
+- [README.md](./README.md): Main project documentation
+- [architecture.md](./architecture.md): Architecture & design
+- [accessibility.md](./accessibility.md): Accessibility guide
+- [testing.md](./testing.md): Testing strategy
+- [contributing.md](./contributing.md): Contributing guide
+- [features.md](./features.md): Features overview
+- [faq.md](./faq.md): FAQ & troubleshooting
 
 ## How to Use
 

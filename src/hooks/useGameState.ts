@@ -14,6 +14,29 @@ const initialGameState: GameState = {
   elapsedTime: 0,
 };
 
+/**
+ * useGameState - Custom hook for managing the core game state.
+ *
+ * @returns {
+ *   currentGuess: number[];
+ *   guesses: number[][];
+ *   feedback: GameFeedback[];
+ *   gameStatus: string;
+ *   difficulty: Difficulty | null;
+ *   maxGuesses: number;
+ *   codeLength: number;
+ *   secretCode: number[];
+ *   guessesRemaining: number;
+ *   isGameOver: boolean;
+ *   canSubmitGuess: boolean;
+ *   addToGuess: (num: number) => void;
+ *   removeFromGuess: () => void;
+ *   clearGuess: () => void;
+ *   submitGuess: () => void;
+ *   startNewGame: (difficulty: Difficulty) => void;
+ *   score: number;
+ * }
+ */
 export const useGameState = () => {
   const [gameState, setGameState] = useState<GameState>(initialGameState);
 

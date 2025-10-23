@@ -14,3 +14,52 @@ This document explains the architecture of ChainBreaker, including custom hooks,
 
 ## Performance
 - Memoization, cleanup, efficient re-renders
+
+## Architecture Diagram
+
+```
+[User]
+   |
+[UI Components] <-> [Custom Hooks]
+   |                    |
+[Game Logic] <-> [State Management]
+   |                    |
+[Persistence] <-> [Accessibility]
+```
+
+## API Reference: Custom Hooks
+
+### useGameState
+```ts
+const {
+  currentGuess,
+  guesses,
+  feedback,
+  gameStatus,
+  difficulty,
+  maxGuesses,
+  codeLength,
+  secretCode,
+  guessesRemaining,
+  isGameOver,
+  canSubmitGuess,
+  addToGuess,
+  removeFromGuess,
+  clearGuess,
+  submitGuess,
+  startNewGame,
+  score,
+} = useGameState();
+```
+
+### useGameTimer
+```ts
+const {
+  elapsedTime,
+  formattedTime,
+  isRunning,
+  start,
+  pause,
+  stop,
+} = useGameTimer(timeLimit, onTimeUp);
+```
