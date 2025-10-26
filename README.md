@@ -8,6 +8,8 @@ This project is built with a modern technology stack, featuring a responsive des
 
 ## Features
 
+### game part
+
 ### Core Gameplay
 *   **Classic Code-Breaking Gameplay**: Guess a secret code using logic and feedback
 *   **Multiple Difficulty Levels**:
@@ -281,4 +283,5 @@ The application uses a custom hooks architecture that separates concerns effecti
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 #   c o d e - b r e a k 
  
+
  
