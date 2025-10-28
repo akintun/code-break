@@ -1,3 +1,8 @@
+@import './styles/mobile.css';
+
+/* Import mobile-specific styles */
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. */
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
