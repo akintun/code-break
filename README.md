@@ -1,5 +1,4 @@
 
-
 # ChainBreaker - A Web-Based Code-Breaking Game
 
 ChainBreaker is an engaging, Mastermind-style code-breaking game designed to test your logic and deduction skills. The objective is to guess a secret code within a set number of attempts and a time limit. With a sleek, modern interface and multiple difficulty levels, ChainBreaker offers a challenging experience for players of all skill levels.
@@ -285,3 +284,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
  
 
  
+
