@@ -1,7 +1,6 @@
 ## Crack the Code with ChainBreaker: A Modern Twist on a Classic Game
 
 **Challenge your intellect and deduction skills with ChainBreaker, a web-based, Mastermind-style code-breaking game.** Your mission is to decipher a secret code within a limited number of guesses and time. Featuring a sleek, contemporary design and adjustable difficulty levels, ChainBreaker provides a stimulating experience for players of all abilities.
-
 Built on a robust and modern technology stack, this project showcases a responsive, mobile-first design that ensures seamless gameplay on any device. It is engineered with a strong emphasis on accessibility, thorough error handling, and persistent game state, allowing you to pick up right where you left off. The codebase is a testament to TypeScript best practices, complete with extensive testing for reliability.
 
 ### Key Features
@@ -212,3 +211,4 @@ The project has undergone several phases of improvement to enhance its foundatio
 ### License
 
 This project is licensed under the MIT License. See the `LICENSE` file for more details.
+
