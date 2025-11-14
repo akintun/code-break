@@ -1,68 +1,53 @@
 import { useCallback, useEffect } from "react";
-import { useGameState } from "./useGameState";
+import { useGameStore } from "@/store/gameStore";
 import { useGameTimer } from "./useGameTimer";
 import { useGamePersistence } from "./useGamePersistence";
-import { Difficulty } from "@/types/game";
+import { Difficulty, DIFFICULTY_SETTINGS } from "@/types/game";
 
 export const useGameLogic = () => {
-  const {
-    gameState,
-    updateGameState,
-    resetGameState,
-    startNewGame,
-    addNumberToGuess,
-    removeLastNumber,
+  // Select state and actions from the Zustand store
+  const gameState = useGameStore((state) => state);
+  const { 
+    startNewGame, 
+    addNumberToGuess, 
+    removeLastNumber, 
     submitGuess,
-    canSubmitGuess,
-    isGameActive,
-  } = useGameState();
-
-  const {
-    loadGameState,
-    clearSavedState,
-  } = useGamePersistence(gameState, (state) => updateGameState(state));
+    updateGameState,
+    resetGame
+  } = useGameStore();
+  
+  const { loadGameState, clearSavedState } = useGamePersistence();
 
   const handleTimeUp = useCallback(() => {
-    updateGameState({
-      isGameOver: true,
-      isWon: false,
-    });
+    updateGameState({ isGameOver: true, isWon: false });
   }, [updateGameState]);
 
   const updateElapsedTime = useCallback((time: number) => {
     updateGameState({ elapsedTime: time });
   }, [updateGameState]);
-
+  
   const timer = useGameTimer({
     gameState,
     onTimeUp: handleTimeUp,
     updateElapsedTime,
   });
 
-  const handleNumberClick = useCallback((num: number) => {
-    addNumberToGuess(num);
-  }, [addNumberToGuess]);
-
-  const handleDelete = useCallback(() => {
-    removeLastNumber();
-  }, [removeLastNumber]);
-
-  const handleSubmit = useCallback(() => {
-    return submitGuess();
-  }, [submitGuess]);
+  // Derived state (selectors)
+  const codeLength = gameState.difficulty ? DIFFICULTY_SETTINGS[gameState.difficulty].codeLength : 0;
+  const canSubmitGuess = gameState.currentGuess.length === codeLength && !gameState.isGameOver;
+  const isGameActive = !gameState.isGameOver && gameState.difficulty !== null;
 
   const handlePlayAgain = useCallback((difficulty: Difficulty) => {
-    clearSavedState(); // Clear any saved state when starting new game
+    clearSavedState();
     startNewGame(difficulty);
   }, [startNewGame, clearSavedState]);
 
   const handleResetGame = useCallback(() => {
-    clearSavedState(); // Clear saved state when resetting
-    resetGameState();
+    clearSavedState();
+    resetGame();
     timer.clearTimer();
-  }, [resetGameState, timer, clearSavedState]);
+  }, [resetGame, timer, clearSavedState]);
 
-  // Try to load saved game state on mount
   useEffect(() => {
     const wasLoaded = loadGameState();
     if (wasLoaded) {
@@ -71,26 +56,18 @@ export const useGameLogic = () => {
   }, [loadGameState]);
 
   return {
-    // Game state
     gameState,
-    
-    // Game actions
-    handleNumberClick,
-    handleDelete,
-    handleSubmit,
+    handleNumberClick: addNumberToGuess,
+    handleDelete: removeLastNumber,
+    handleSubmit: submitGuess,
     handlePlayAgain,
     handleResetGame,
     startNewGame,
-    
-    // Timer utilities
     formatTime: timer.formatTime,
     getRemainingTime: timer.getRemainingTime,
-    
-    // Computed values
     canSubmitGuess,
     isGameActive,
-
-    // Persistence utilities
     clearSavedState,
+    codeLength,
   };
 };
